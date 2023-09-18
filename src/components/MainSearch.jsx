@@ -7,25 +7,6 @@ import { getJobs, getQuery } from "../redux/actions";
 
 const MainSearch = () => {
   const dispatch = useDispatch();
-  // useEffect(() => {
-  //   ;
-  // }, []);
-  // const [query, setQuery] = useState("");
-
-  // const baseEndpoint = "https://strive-benchmark.herokuapp.com/api/jobs?search=";
-
-  // const query = useSelector((state)=>state.)
-  // try {
-  //   const response = await fetch(baseEndpoint + query + "&limit=20");
-  //   if (response.ok) {
-  //     const { data } = await response.json();
-  //     setJobs(data);
-  //   } else {
-  //     alert("Error fetching results");
-  //   }
-  // } catch (error) {
-  //   console.log(error);
-  // }
 
   const jobs = useSelector((state) => state.jobs.content);
   console.log(jobs);
@@ -55,7 +36,11 @@ const MainSearch = () => {
           </Form>
         </Col>
         <Col xs={10} className="mx-auto mb-5">
-          {jobs.length > 0 && jobs.data.map((jobData) => <Job key={jobData._id} data={jobData} />)}
+          {jobs.data ? (
+            jobs.data.map((jobData) => <Job key={jobData._id} companyData={jobData} />)
+          ) : (
+            <div>cerca un lavoro</div>
+          )}
         </Col>
       </Row>
     </Container>

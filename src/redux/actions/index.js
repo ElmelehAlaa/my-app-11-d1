@@ -3,8 +3,11 @@ export const REMOVE_FROM_FAVORITES = "REMOVE_FROM_FAVORITES";
 export const GET_JOBS = "GET_JOBS";
 export const GET_QUERY = "GET_QUERY";
 
-export const addToFavoritesAction = (jobSelected) => ({ type: ADD_TO_FAVORITES, payload: jobSelected });
-export const removeFromFavoritesAction = (jobSelected) => ({ type: REMOVE_FROM_FAVORITES, payload: jobSelected });
+export const addToFavoritesAction = (companySelected) => ({ type: ADD_TO_FAVORITES, payload: companySelected });
+export const removeFromFavoritesAction = (companySelected) => ({
+  type: REMOVE_FROM_FAVORITES,
+  payload: companySelected,
+});
 export const getQuery = (queryJob) => ({ type: GET_QUERY, payload: queryJob });
 export const getJobs = () => {
   return async (dispatch, getState) => {
